@@ -17,7 +17,7 @@ def add():
         portatil = request.form['idPortatil']
         
         
-        new_entrada = Entrada(fechaE=datetime.now(), aprendiz=aprendiz, portatil=portatil)
+        new_entrada = Entrada(fechaE=datetime.utcnow(), aprendiz=aprendiz, portatil=portatil)
         db.session.add(new_entrada)
         db.session.commit()
         
@@ -40,7 +40,7 @@ def exit(id):
 
 
     if request.method == 'GET':
-        entrada.fechaS = datetime.now()
+        entrada.fechaS = datetime.utcnow()
         db.session.commit()
         return redirect(url_for('entrada.index'))
 
