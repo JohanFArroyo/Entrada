@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Aprendiz</title>
+</head>
+<body>
+    <h1>Lista de Aprendices</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Ficha</th>
+            <th>Cedula</th>
+            <th>Acciones</th>
+        </tr>
+        {% for aprendiz in data %}
+            <tr>
+                <td>{{ aprendiz.id }}</td>
+                <td>{{ aprendiz.nombre }}</td>
+                <td>{{ aprendiz.ficha }}</td>
+                <td>{{ aprendiz.cedula }}</td>
+                <td>
+                    <a href="{{ url_for('aprendiz.edit', id=aprendiz.id) }}">Editar</a>
+                    <a href="{{ url_for('aprendiz.delete', id=aprendiz.id) }}">Eliminar</a>
+                    <!-- Agrega aquí el enlace para eliminar -->
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('aprendiz.add') }}">Agregar Aprendiz</a>
+    <br>
+    <a href="{{ url_for('entrada.index') }}">Ir a Entrada</a>
+</body>
+</html>

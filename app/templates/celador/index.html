@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Celador</title>
+</head>
+<body>
+    <h1>Lista de Celadores</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Correo</th>
+            <th>Contraseña</th>
+            <th>Acciones</th>
+        </tr>
+        {% for celador in data %}
+            <tr>
+                <td>{{ celador.id }}</td>
+                <td>{{ celador.nombre }}</td>
+                <td>{{ celador.cedula }}</td>
+                <td>{{ celador.correo }}</td>
+                <td>{{ celador.contra }}</td>
+                <td>
+                    <a href="{{ url_for('celador.edit', id=celador.id) }}">Editar</a>
+                    <a href="{{ url_for('celador.delete', id=celador.id) }}">Eliminar</a>
+                    <!-- Agrega aquí el enlace para eliminar -->
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('celador.add') }}">Agregar Celador</a>
+</body>
+</html>

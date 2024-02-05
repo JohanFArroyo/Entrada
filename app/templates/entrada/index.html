@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Entrada</title>
+</head>
+<body>
+    <h1>Lista de Entradas</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Hora Entrada</th>
+            <th>Hora Salida</th>
+            <th>Aprendiz</th>
+            <th>Portatil</th>
+            <th>Acciones</th>
+        </tr>
+        {% for entrada in data %}
+            <tr>
+                <td>{{ entrada.id }}</td>
+                <td>{{ entrada.fechaE }}</td>
+                <td>{{ entrada.fechaS }}</td>
+                <td>{{ entrada.aprendiz }}</td>
+                <td>{{ entrada.portatil }}</td>
+                <td>
+                    <a href="{{ url_for('entrada.exit', id=entrada.id) }}">Salida</a>
+                    <a href="{{ url_for('entrada.delete', id=entrada.id) }}">Eliminar</a>
+                    <!-- Agrega aquí el enlace para eliminar -->
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('entrada.add') }}">Agregar Entrada</a>
+</body>
+</html>

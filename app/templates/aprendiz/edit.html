@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Aprendiz</title>
+</head>
+<body>
+    <h1>Editar Aprendiz</h1>
+    <form action="{{ url_for('aprendiz.edit', id=aprendiz.id) }}" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ aprendiz.nombre }}" required>
+        <label for="ficha">Ficha:</label>
+        <input type="text" id="ficha" name="ficha" value="{{ aprendiz.ficha }}" required>
+        <label for="cedula">Cedula:</label>
+        <input type="text" id="cedula" name="cedula" value="{{ aprendiz.cedula }}" required>
+        <button type="submit">Actualizar Aprendiz</button>
+    </form>
+</body>
+</html>
