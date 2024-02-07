@@ -5,7 +5,7 @@ from app import db
 
 bp = Blueprint('entrada', __name__)
 
-@bp.route('/')
+@bp.route('/Entrada')
 def index():
     data = Entrada.query.all()
     return render_template('entrada/index.html', data=data)

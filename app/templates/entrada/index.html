@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Lista de Entradas</h1>
+    <h2>{{current_user.nombre}}</h2>
     <table>
         <tr>
             <th>ID</th>
@@ -34,5 +35,8 @@
         {% endfor %}
     </table>
     <a href="{{ url_for('entrada.add') }}">Agregar Entrada</a>
+    <a href="{{ url_for('aprendiz.add') }}">Agregar Aprendiz</a>
+    <a href="{{ url_for('portatil.add') }}">Agregar Portatil</a>
+    <a href="{{ url_for('login.logout') }}">Cerrar sesion</a>
 </body>
 </html>
