@@ -18,6 +18,7 @@
                     {% endfor %}
             {% endif %}
         {% endwith %}
+        
 
         <form method="post" action="{{ url_for('login.login') }}">
             <div class="form-group">
@@ -29,6 +30,7 @@
                 <input type="password" name="contra" id="contra" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
+            <a href="{{ url_for('celador.index') }}">Crear cuenta</a>
         </form>
     </div>
 </div>

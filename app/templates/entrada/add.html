@@ -8,6 +8,19 @@
     <title>Agregar Entrada</title>
 </head>
 <body>
+
+    {%with mensajes = get_flashed_messages(with_categories=true) %}
+        {%for categoria, mensaje in mensajes %}
+            <script>
+                window.onload = function(){
+                    window.setTimeout(function(){
+                        alert("{{mensaje}}");
+                    }, 500);
+                };
+            </script>
+        {%endfor%}
+    {%endwith%}     
+       
     <h1>Agregar Entrada</h1>
     <form action="{{ url_for('entrada.add') }}" method="post">
         <label for="idAprendiz">Aprendiz:</label>
