@@ -7,6 +7,6 @@ class Entrada(db.Model):
     fechaE = db.Column(db.TIMESTAMP, nullable=True)
     fechaS = db.Column(db.TIMESTAMP, nullable=True)
     aprendiz = db.Column(db.Integer, db.ForeignKey('aprendiz.id'))
-    modelo_principal = db.relationship('Aprendiz', backref='tus_modelos')
+    modelo_aprendiz = db.relationship('Aprendiz', backref='tus_modelos')
     portatil = db.Column(db.Integer, db.ForeignKey('portatil.id'))
-    modelo_principal = db.relationship('Portatil', backref='tus_modelos')
+    modelo_portatil = db.relationship('Portatil', backref='tus_modelos')

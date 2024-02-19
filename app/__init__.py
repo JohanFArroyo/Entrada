@@ -14,7 +14,7 @@ def create_app():
     bcrypt = Bcrypt(app)
     db.init_app(app)
     login_manager.init_app(app)
-    login_manager.login_view = 'auth.login'
+    login_manager.login_view = 'login.login'
 
     @login_manager.user_loader
     def load_user(user_id):

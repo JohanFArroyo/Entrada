@@ -8,7 +8,17 @@
     <title>Portatil</title>
 </head>
 <body>
-    <h1>Lista de Portatiles</h1>
+    <h1 style="text-align: center;">Lista de Portatiles</h1>
+    <form action="{{ url_for('portatil.buscar', nombre=nAprendiz)}}" method="get">
+        <div class="form-group">
+            <label for="nombre">Nombre Portatil</label>
+            <input type="text" id="nombre" name="nombre">
+        </div>
+        <div>
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+    <div style="width: 80%; margin: 20px auto;">
     <table>
         <tr>
             <th>ID</th>
@@ -32,5 +42,6 @@
     <a href="{{ url_for('portatil.add') }}">Agregar Portatil</a>
     <br>
     <a href="{{ url_for('entrada.index') }}">Ir a Entrada</a>
+    </div>
 </body>
 </html>

@@ -8,11 +8,20 @@
     <title>Entrada</title>
 </head>
 <body>
-    <h1>Lista de Entradas</h1>
+    <h1 style="text-align: center;">Lista de Entradas</h1>
     <h2>{{current_user.nombre}}</h2>
+    <form action="{{ url_for('entrada.buscar', nombre=nAprendiz)}}" method="get">
+        <div class="form-group">
+            <label for="nombre">Nombre Aprendiz</label>
+            <input type="text" id="nombre" name="nombre">
+        </div>
+        <div>
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+    <div style="width: 80%; margin: 20px auto;">
     <table>
         <tr>
-            <th>ID</th>
             <th>Hora Entrada</th>
             <th>Hora Salida</th>
             <th>Aprendiz</th>
@@ -21,11 +30,10 @@
         </tr>
         {% for entrada in data %}
             <tr>
-                <td>{{ entrada.id }}</td>
                 <td>{{ entrada.fechaE }}</td>
                 <td>{{ entrada.fechaS }}</td>
-                <td>{{ entrada.aprendiz }}</td>
-                <td>{{ entrada.portatil }}</td>
+                <td>{{ entrada.modelo_aprendiz.nombre }}</td>
+                <td>{{ entrada.modelo_portatil.nombre }} {{ entrada.modelo_portatil.color }}</td>
                 <td>
                     <a href="{{ url_for('entrada.exit', id=entrada.id) }}">Salida</a>
                     <a href="{{ url_for('entrada.delete', id=entrada.id) }}">Eliminar</a>
@@ -35,8 +43,12 @@
         {% endfor %}
     </table>
     <a href="{{ url_for('entrada.add') }}">Agregar Entrada</a>
-    <a href="{{ url_for('aprendiz.add') }}">Agregar Aprendiz</a>
-    <a href="{{ url_for('portatil.add') }}">Agregar Portatil</a>
+    <br>
+    <a href="{{ url_for('aprendiz.index') }}">Agregar Aprendiz</a>
+    <br>
+    <a href="{{ url_for('portatil.index') }}">Agregar Portatil</a>
+    <br>
     <a href="{{ url_for('login.logout') }}">Cerrar sesion</a>
+    </div>
 </body>
 </html>

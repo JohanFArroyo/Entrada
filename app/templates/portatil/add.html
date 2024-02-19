@@ -8,13 +8,14 @@
     <title>Agregar Portatil</title>
 </head>
 <body>
-    <h1>Agregar Portatil</h1>
+    <h1 style="text-align: center;">Agregar Portatil</h1>
     <form action="{{ url_for('portatil.add') }}" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         <label for="color">Color:</label>
         <input type="text" id="color" name="color" required>
         <button type="submit">Agregar Portatil</button>
+        <a href="{{ url_for('portatil.index') }}">Volver</a>
     </form>
 </body>
 </html>

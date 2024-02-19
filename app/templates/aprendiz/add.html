@@ -8,7 +8,7 @@
     <title>Agregar Aprendiz</title>
 </head>
 <body>
-    <h1>Agregar Aprendiz</h1>
+    <h1 style="text-align: center;">Agregar Aprendiz</h1>
     <form action="{{ url_for('aprendiz.add') }}" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
@@ -17,6 +17,7 @@
         <label for="cedula">Cedula:</label>
         <input type="text" id="cedula" name="cedula" required>
         <button type="submit">Agregar Aprendiz</button>
+        <a href="{{ url_for('aprendiz.index') }}">Volver</a>
     </form>
 </body>
 </html>

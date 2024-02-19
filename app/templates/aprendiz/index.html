@@ -8,31 +8,42 @@
     <title>Aprendiz</title>
 </head>
 <body>
-    <h1>Lista de Aprendices</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Ficha</th>
-            <th>Cedula</th>
-            <th>Acciones</th>
-        </tr>
-        {% for aprendiz in data %}
+    <h1 style="text-align: center;">Lista de Aprendices</h1>
+    <form action="{{ url_for('aprendiz.buscar', nombre=nAprendiz)}}" method="get">
+        <div class="form-group">
+            <label for="nombre">Nombre Aprendiz</label>
+            <input type="text" id="nombre" name="nombre">
+        </div>
+        <div>
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+    <div style="width: 80%; margin: 20px auto;">
+        <table>
             <tr>
-                <td>{{ aprendiz.id }}</td>
-                <td>{{ aprendiz.nombre }}</td>
-                <td>{{ aprendiz.ficha }}</td>
-                <td>{{ aprendiz.cedula }}</td>
-                <td>
-                    <a href="{{ url_for('aprendiz.edit', id=aprendiz.id) }}">Editar</a>
-                    <a href="{{ url_for('aprendiz.delete', id=aprendiz.id) }}">Eliminar</a>
-                    <!-- Agrega aquí el enlace para eliminar -->
-                </td>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Ficha</th>
+                <th>Cedula</th>
+                <th>Acciones</th>
             </tr>
-        {% endfor %}
-    </table>
-    <a href="{{ url_for('aprendiz.add') }}">Agregar Aprendiz</a>
-    <br>
-    <a href="{{ url_for('entrada.index') }}">Ir a Entrada</a>
+            {% for aprendiz in data %}
+                <tr>
+                    <td>{{ aprendiz.id }}</td>
+                    <td>{{ aprendiz.nombre }}</td>
+                    <td>{{ aprendiz.ficha }}</td>
+                    <td>{{ aprendiz.cedula }}</td>
+                    <td>
+                        <a href="{{ url_for('aprendiz.edit', id=aprendiz.id) }}">Editar</a>
+                        <a href="{{ url_for('aprendiz.delete', id=aprendiz.id) }}">Eliminar</a>
+                        <!-- Agrega aquí el enlace para eliminar -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('aprendiz.add') }}">Agregar Aprendiz</a>
+        <br>
+        <a href="{{ url_for('entrada.index') }}">Ir a Entrada</a>
+    </div>
 </body>
 </html>

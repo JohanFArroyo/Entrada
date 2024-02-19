@@ -17,7 +17,7 @@ def login():
         if user and bcrypt.check_password_hash(user.contra,contra):
             login_user(user)
             return redirect(url_for('login.dashboard'))
-        flash('Invalid credentials. Please try again.', 'danger')
+        flash('Correo o contraseña incorrecta. Vuelva a ingresar los datos', 'danger')
     
     if current_user.is_authenticated:
         return redirect(url_for('login.dashboard'))

@@ -45,3 +45,10 @@ def delete(id):
     db.session.commit()
 
     return redirect(url_for('aprendiz.index'))
+
+@bp.route('/Aprendiz/buscar', methods=['GET'])
+def buscar():
+    nombre = request.args.get('nombre')
+    data = Aprendiz.query.filter(Aprendiz.nombre.like(f"%{nombre}%")).all()
+    print(data)
+    return render_template('aprendiz/index.html',data=data)

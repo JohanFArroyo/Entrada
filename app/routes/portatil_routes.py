@@ -43,3 +43,10 @@ def delete(id):
     db.session.commit()
 
     return redirect(url_for('portatil.index'))
+
+@bp.route('/Portatil/buscar', methods=['GET'])
+def buscar():
+    nombre = request.args.get('nombre')
+    data = Portatil.query.filter(Portatil.nombre.like(f"%{nombre}%")).all()
+    print(data)
+    return render_template('portatil/index.html',data=data)
