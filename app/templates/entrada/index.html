@@ -8,8 +8,10 @@
     <title>Entrada</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Lista de Entradas</h1>
-    <h2>{{current_user.nombre}}</h2>
+    <div style="text-align: center;">
+        <h1 >Lista de Entradas</h1>
+        <h2>{{current_user.nombre}}</h2>
+    </div>
     <form action="{{ url_for('entrada.buscar', nombre=nAprendiz)}}" method="get">
         <div class="form-group">
             <label for="nombre">Nombre Aprendiz</label>
