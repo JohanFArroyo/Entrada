@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Portatil</title>
+    <style> 
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .menu ul li {
+            float: left;
+        }
+        
+        .menu ul li a {
+            display: block;
+            color: rgb(31, 104, 31);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        .menu ul li a:hover {
+            background-color: #1dad01ce;
+        }
+    </style>
 </head>
 <body>
     <h1 style="text-align: center;">Lista de Portatiles</h1>
@@ -39,9 +62,12 @@
             </tr>
         {% endfor %}
     </table>
-    <a href="{{ url_for('portatil.add') }}">Agregar Portatil</a>
-    <br>
-    <a href="{{ url_for('entrada.index') }}">Ir a Entrada</a>
+    <nav class="menu">
+        <ul>
+            <li><a href="{{ url_for('portatil.add') }}">Agregar Portatil</a></li>
+            <li><a href="{{ url_for('entrada.index') }}">Ir a Entrada</a></li>
+        </ul>
+    </nav>
     </div>
 </body>
 </html>

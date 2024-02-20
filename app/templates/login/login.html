@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        .card {
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+    </style>
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container my-4">
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+    <div class="card">
     <div class="col-md-6 offset-md-3">
         <h2>Inicio de Sesion</h2>
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -34,6 +52,8 @@
                 <a href="{{ url_for('celador.add') }}">Crear cuenta</a>
             </div>
         </form>
+    </div>
+    </div>
     </div>
 </div>        
 </body>

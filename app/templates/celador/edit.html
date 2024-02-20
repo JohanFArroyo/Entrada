@@ -8,7 +8,7 @@
     <title>Editar Celadores</title>
 </head>
 <body>
-    <h1>Editar Celadores</h1>
+    <h1 style="text-align: center;">Editar Celadores</h1>
     <form action="{{ url_for('celador.edit', id=celador.id) }}" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" value="{{ celador.nombre }}" required>
