@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Agregar Entrada</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     {%with mensajes = get_flashed_messages(with_categories=true) %}
@@ -18,7 +28,8 @@
                 };
             </script>
         {%endfor%}
-    {%endwith%}     
+    {%endwith%}
+    <div class="container">     
     <h1 style="text-align: center;">Agregar Entrada</h1>
     <form action="{{ url_for('entrada.add') }}" method="post">
         <label for="idAprendiz">Aprendiz:</label>
@@ -28,5 +39,6 @@
         <button type="submit">Agregar Entrada</button>
         <a href="{{ url_for('entrada.index') }}">Volver</a>
     </form>
+    </div>
 </body>
 </html>

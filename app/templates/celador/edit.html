@@ -6,8 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Editar Celadores</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
     <h1 style="text-align: center;">Editar Celadores</h1>
     <form action="{{ url_for('celador.edit', id=celador.id) }}" method="post">
         <label for="nombre">Nombre:</label>
@@ -17,6 +28,8 @@
         <label for="correo">Correo:</label>
         <input type="text" id="correo" name="correo" value="{{ celador.correo }}" required>
         <button type="submit">Actualizar Celador</button>
+        <a href="{{ url_for('celador.index') }}">Volver</a>
     </form>
+    </div>
 </body>
 </html>
