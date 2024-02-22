@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Entrada</title>
-    <style> 
+    <style>
         .menu ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
         }
-        
+
         .menu ul li {
             float: left;
         }
-        
+
         .menu ul li a {
             display: block;
             color: rgb(31, 104, 31);
@@ -24,15 +25,20 @@
             padding: 14px 16px;
             text-decoration: none;
         }
-        
+
         .menu ul li a:hover {
             background-color: #1dad01ce;
         }
+
+        .oculto {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
     <div style="text-align: center;">
-        <h1 >Lista de Entradas</h1>
+        <h1>Lista de Entradas</h1>
         <h2>{{current_user.nombre}}</h2>
     </div>
     <form action="{{ url_for('entrada.buscar', nombre=nAprendiz)}}" method="get">
@@ -45,36 +51,39 @@
         </div>
     </form>
     <div style="width: 80%; margin: 20px auto;">
-    <table>
-        <tr>
-            <th>Hora Entrada</th>
-            <th>Hora Salida</th>
-            <th>Aprendiz</th>
-            <th>Portatil</th>
-            <th>Acciones</th>
-        </tr>
-        {% for entrada in data %}
+        <table>
+            <tr>
+                <th>Hora Entrada</th>
+                <th>Hora Salida</th>
+                <th>Aprendiz</th>
+                <th>Portatil</th>
+                <th>Acciones</th>
+            </tr>
+            {% for entrada in data %}
             <tr>
                 <td>{{ entrada.fechaE }}</td>
                 <td>{{ entrada.fechaS }}</td>
                 <td>{{ entrada.modelo_aprendiz.nombre }}</td>
                 <td>{{ entrada.modelo_portatil.nombre }} {{ entrada.modelo_portatil.color }}</td>
                 <td>
+                    {% if entrada.fechaS is none or entrada.fechaS  == '' %}
                     <a href="{{ url_for('entrada.exit', id=entrada.id) }}">Salida</a>
+                    {% endif %}
                     <a href="{{ url_for('entrada.delete', id=entrada.id) }}">Eliminar</a>
                     <!-- Agrega aquí el enlace para eliminar -->
                 </td>
             </tr>
-        {% endfor %}
-    </table>
-    <nav class="menu">
-        <ul>
-            <li><a href="{{ url_for('entrada.add') }}">Agregar Entrada</a></li>
-            <li><a href="{{ url_for('aprendiz.index') }}">Agregar Aprendiz</a></li>
-            <li><a href="{{ url_for('portatil.index') }}">Agregar Portatil</a></li>
-            <li><a href="{{ url_for('login.logout') }}">Cerrar sesion</a></li>
-        </ul>
-    </nav>
+            {% endfor %}
+        </table>
+        <nav class="menu">
+            <ul>
+                <li><a href="{{ url_for('entrada.add') }}">Agregar Entrada</a></li>
+                <li><a href="{{ url_for('aprendiz.index') }}">Agregar Aprendiz</a></li>
+                <li><a href="{{ url_for('portatil.index') }}">Agregar Portatil</a></li>
+                <li><a href="{{ url_for('login.logout') }}">Cerrar sesion</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
+
 </html>
