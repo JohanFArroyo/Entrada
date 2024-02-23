@@ -33,12 +33,18 @@
     <h1 style="text-align: center;">Agregar Entrada</h1>
     <form action="{{ url_for('entrada.add') }}" method="post">
         <label for="idAprendiz">Aprendiz:</label>
-        <input type="text" id="idAprendiz" name="cedulaAprendiz" required>
+        <input type="text" id="idAprendiz" name="nombreAprendiz" list="bAprendiz" autocomplete="off">
         <label for="idPortatil">Portatil:</label>
         <input type="text" id="idPortatil" name="idPortatil" required>
         <button type="submit">Agregar Entrada</button>
         <a href="{{ url_for('entrada.index') }}">Volver</a>
     </form>
     </div>
+
+    <dataList id="bAprendiz">
+        {%for aprendiz in aprendices %}
+            <option value="{{aprendiz.nombre}}"></option>
+        {%endfor%}
+    </dataList>
 </body>
 </html>

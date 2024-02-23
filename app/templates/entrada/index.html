@@ -33,10 +33,24 @@
         .oculto {
             display: none;
         }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .background {
+            background-color: white;
+            padding: 20px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="container background">
     <div style="text-align: center;">
         <h1>Lista de Entradas</h1>
         <h2>{{current_user.nombre}}</h2>
@@ -50,7 +64,7 @@
             <button type="submit">Buscar</button>
         </div>
     </form>
-    <div style="width: 80%; margin: 20px auto;">
+    <div style="margin: 28px auto;">
         <table>
             <tr>
                 <th>Hora Entrada</th>
@@ -83,6 +97,7 @@
                 <li><a href="{{ url_for('login.logout') }}">Cerrar sesion</a></li>
             </ul>
         </nav>
+    </div>
     </div>
 </body>
 

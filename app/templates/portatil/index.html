@@ -28,9 +28,24 @@
         .menu ul li a:hover {
             background-color: #1dad01ce;
         }
+
+        
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .background {
+            background-color: white;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
+    <div class="container background">
     <h1 style="text-align: center;">Lista de Portatiles</h1>
     <form action="{{ url_for('portatil.buscar', nombre=nAprendiz)}}" method="get">
         <div class="form-group">
@@ -41,7 +56,7 @@
             <button type="submit">Buscar</button>
         </div>
     </form>
-    <div style="width: 80%; margin: 20px auto;">
+    <div style="margin: 28px auto;">
     <table>
         <tr>
             <th>ID</th>
@@ -68,6 +83,7 @@
             <li><a href="{{ url_for('entrada.index') }}">Ir a Entrada</a></li>
         </ul>
     </nav>
+    </div>
     </div>
 </body>
 </html>

@@ -16,12 +16,12 @@ def index():
 @bp.route('/Entrada/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
-        aprendiz = request.form['cedulaAprendiz']
+        aprendiz = request.form['nombreAprendiz']
         portatil = request.form['idPortatil']
         
-        consulta = Aprendiz.query.filter_by(cedula=aprendiz).first()
+        consulta = Aprendiz.query.filter_by(nombre=aprendiz).first()
         consulta1 = Portatil.query.filter_by(id=portatil).first()
-        if not consulta:
+        if not consulta:    
             flash('Aprendiz no encontrado')
         elif not consulta1: 
             flash('Portatil no encontrado')
@@ -31,7 +31,8 @@ def add():
             db.session.commit()
             return redirect(url_for('entrada.index'))
         
-    return render_template('entrada/add.html')
+    aprendices = Aprendiz.query.all()
+    return render_template('entrada/add.html', aprendices=aprendices)
 
 @bp.route('/Entrada/delete/<int:id>')
 def delete(id):
